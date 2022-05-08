@@ -40,12 +40,46 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth',
+    '@nuxtjs/proxy',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    // baseURL: '/',
+    proxy: true,
+  },
+
+  proxy: {
+    '/api/': {
+      target: process.env.BASE_URL,
+    }
+  },
+
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: false,
+      home: '/'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/admin/auth/login', method: 'post', propertyName: false },
+          user: { url: '/api/admin/user', method: 'get', propertyName: false },
+          logout: false
+        },
+        tokenRequired: false,
+        tokenType: false,
+      }
+    },
+    localStorage: false,
+  },
+
+  router: {
+    middleware: ['auth']
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
