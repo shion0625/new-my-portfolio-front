@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - blog',
-    title: 'blog',
+    titleTemplate: '%s - Portfolio',
+    title: 'Kaito Yodogawa',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,7 +18,8 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -42,18 +43,22 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/auth',
     '@nuxtjs/proxy',
+    '@nuxtjs/style-resources',
   ],
-
+  styleResources: {
+    scss: ['~/assets/scss/_mixin.scss'],
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     // baseURL: '/',
-    proxy: true,
+    baseURL: 'http:localhost',
+    credentials: true,
   },
 
   proxy: {
     '/api/': {
-      target: process.env.BASE_URL,
+      target:　process.env.BASE_URL,
     }
   },
 
@@ -109,5 +114,7 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    hardSource: true,
+  },
 }
