@@ -95,14 +95,14 @@ export default defineComponent ({
       ])
       const miniVariant = ref(false);
       const title = ref('Kaito Yodogawa')
-          return {
-      clipped,
-      drawer,
-      fixed,
-      items,
-      miniVariant,
-      title
-    }
+      return {
+        clipped,
+        drawer,
+        fixed,
+        items,
+        miniVariant,
+        title
+      }
     }
   })
 </script>

@@ -55,7 +55,7 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     // baseURL: '/',
-    baseURL: 'http:localhost',
+    baseURL: 'http:localhost:3000',
     credentials: true,
   },
 
@@ -70,7 +70,7 @@ export default {
       login: '/login',
       logout: '/login',
       callback: false,
-      home: '/'
+      home: '/login'
     },
     strategies: {
       local: {
@@ -87,7 +87,7 @@ export default {
   },
 
   router: {
-    middleware: ['auth']
+    middleware: []
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
