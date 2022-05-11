@@ -4,8 +4,9 @@
       v-model="drawer"
       :mini-variant="miniVariant"
       fixed
-      app
       class="hidden-md-and-up"
+      temporary
+      app
     >
       <v-list>
         <v-list-item
@@ -26,7 +27,7 @@
     </v-navigation-drawer>
 
     <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" />
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"/>
       <v-toolbar-title v-text="title" />
       <v-tabs class="hidden-md-and-down" right>
         <v-tab
@@ -43,9 +44,7 @@
     </v-app-bar>
 
     <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
+      <Nuxt />
     </v-main>
     <v-footer :absolute="!fixed" dark app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
@@ -114,11 +113,9 @@ export default defineComponent ({
   margin-right: 50px !important;
 }
 
-.v-tabs {
-  display: none;
-
+.v-overlay {
   @include display_pc {
-    display: block !important;
+    content-visibility: hidden;
   }
 }
 </style>
