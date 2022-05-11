@@ -2,7 +2,7 @@
   <section class="home-main">
     <v-container fluid fill-height class="home-main__content">
       <v-row align="center" justify="center" class="home-main__content-text">
-          <vue-typed-js :strings="['<p>Welcome to My Portfolio </p>','<b>I\'m a Kaito Yodogawa.<b>']" :type-speed="100" :contentType="'html'" :smartBackspace="true">
+          <vue-typed-js :strings="['<p>Welcome to My Portfolio. </p>','<b>I\'m a Kaito Yodogawa.<b>']" :type-speed="100" :contentType="'html'" :smartBackspace="true">
           <h1 class="typing"></h1>
           </vue-typed-js>
       </v-row>
@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import { defineComponent, ref } from '@vue/composition-api';
-
 export default {
   name: 'main',
   auth: false,
