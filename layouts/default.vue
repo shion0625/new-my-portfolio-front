@@ -28,7 +28,6 @@
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" />
       <v-toolbar-title v-text="title" />
-      <v-spacer />
       <v-tabs class="hidden-md-and-down" right>
         <v-tab
           v-for="(item,i) in items"
@@ -36,10 +35,12 @@
           :to="item.to"
           router
           exact
+          nuxt
         >
         {{ item.title }}
         </v-tab>
-      </v-tabs>    </v-app-bar>
+      </v-tabs>
+    </v-app-bar>
 
     <v-main>
       <v-container>
@@ -52,16 +53,22 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  name: 'DefaultLayout',
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
+<script lang="ts">
+import { defineComponent, ref } from '@vue/composition-api';
+
+type Item = {
+  icon: string,
+  title: string,
+  to: string
+}
+
+export default defineComponent ({
+  setup(){
+    const clipped = ref(false);
+    const drawer = ref(false);
+    const fixed = ref(false);
+    const items = ref<Item[]>([
+      {
           icon: 'mdi-home',
           title: 'Home',
           to: '/'
@@ -86,12 +93,19 @@ export default {
           title: 'contact',
           to: '/contact'
         }
-      ],
-      miniVariant: false,
-      title: 'Kaito Yodogawa',
+      ])
+      const miniVariant = ref(false);
+      const title = ref('Kaito Yodogawa')
+          return {
+      clipped,
+      drawer,
+      fixed,
+      items,
+      miniVariant,
+      title
     }
-  },
-}
+    }
+  })
 </script>
 
 <style lang="scss" scoped>

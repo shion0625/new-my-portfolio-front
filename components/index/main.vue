@@ -1,10 +1,9 @@
 <template>
-  <indexMain/>
+  <div>kaito</div>
 </template>
-
 <script>
 export default {
-  name: 'IndexPage',
+  name: 'main',
   auth: false,
 }
 </script>
