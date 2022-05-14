@@ -24,6 +24,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~plugins/vue-typed', mode: 'client' },
+    {src: '~plugins/webp', mode: 'client'},
     'plugins/axios',
   ],
 
@@ -76,7 +77,7 @@ export default {
   //     local: {
   //       endpoints: {
   //         login: { url: '/api/login', method: 'post', propertyName: false },
-  //         user: { url: '/api/works', method: 'get', propertyName: false },
+  //         user: { url: '/api/users', method: 'get', propertyName: false },
   //         logout: false
   //       },
   //       tokenRequired: false,
