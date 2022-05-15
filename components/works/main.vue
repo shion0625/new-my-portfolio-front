@@ -108,20 +108,26 @@
               </v-list-item-content>
             </v-list-item>
           </v-list>
+          <v-row>
           <v-card-actions>
             <v-btn :href="currentWork.attribute.url" rounded target="_blank">
               {{currentWork.attribute.title}}のサイトへ
             </v-btn>
+          </v-card-actions>
             <v-spacer></v-spacer>
+          <v-card-actions>
             <v-btn :href="currentWork.attribute.source_code_url" rounded target="_blank">
             githubのソースコードへ
             </v-btn>
           </v-card-actions>
-          <v-card-actions>
+          </v-row>
+          <v-row>
+            <v-card-actions>
             <v-btn @click="dialog = false" color="error">
               Close
               <v-icon>mdi-close</v-icon>
             </v-btn>
+          </v-card-actions>
             <v-spacer></v-spacer>
             <v-chip
             label
@@ -166,7 +172,7 @@
               公開日:
               {{currentWork.attribute.created.split('T')[0]}}
             </v-chip>
-          </v-card-actions>
+          </v-row>
         </v-card>
       </v-dialog>
   </v-container>
