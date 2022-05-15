@@ -99,7 +99,11 @@
               <v-list-item-content>
                 <v-list-item-title>言語</v-list-item-title>
                 <div class="list-item-content-body">
-                  {{currentWork.attribute.language}}
+                  <v-chip
+                  v-for="(lang, i) in currentWork.attribute.language"
+                :key="i">
+                    {{lang}}
+                  </v-chip>
                 </div>
               </v-list-item-content>
             </v-list-item>
@@ -109,7 +113,7 @@
               {{currentWork.attribute.title}}のサイトへ
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn :href="currentWork.attribute.url" rounded target="_blank">
+            <v-btn :href="currentWork.attribute.source_code_url" rounded target="_blank">
             githubのソースコードへ
             </v-btn>
           </v-card-actions>
@@ -160,7 +164,7 @@
                 <v-icon>mdi-calendar-month-outline</v-icon>
               </v-avatar>
               公開日:
-              {{currentWork.attribute.createdAt}}
+              {{currentWork.attribute.created.split('T')[0]}}
             </v-chip>
           </v-card-actions>
         </v-card>
