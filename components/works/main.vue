@@ -20,21 +20,33 @@
         <v-card-subtitle>{{work.data.genre}}</v-card-subtitle>
           <v-divider></v-divider>
           <div v-if="work.data.image.length">
-            <v-img
-              v-if="$webp"
-              height="125"
-              :src="'data:image/webp;base64,'+work.data.image[1].image_webp"
-              class="grey darken-4"
-              loading="lazy"
-            ></v-img>
-            <v-img
-              v-else
-              :src="'data:image/jpeg;base64,'+work.data.image[1].image_jpg"
-              height="125"
-              class="grey darken-4"
-              loading="lazy"
-            ></v-img>
-          </div>
+            <v-carousel
+            cycle
+            height="125"
+            hide-delimiters
+            :show-arrows="false"
+            >
+              <v-carousel-item
+                v-for="(image, i) in work.data.image"
+                :key="i"
+              >
+                <v-img
+                v-if="$webp"
+                height="125"
+                :src="'data:image/webp;base64,'+image.image_webp"
+                class="grey darken-4"
+                loading="lazy"
+              ></v-img>
+              <v-img
+                v-else
+                :src="'data:image/jpeg;base64,'+image.image_jpg"
+                height="125"
+                class="grey darken-4"
+                loading="lazy"
+              ></v-img>
+              </v-carousel-item>
+          </v-carousel>
+        </div>
           <v-btn
             variant="text"
             color="teal-accent-4"
@@ -93,11 +105,11 @@
             </v-list-item>
           </v-list>
           <v-card-actions>
-            <v-btn :href="currentWork.attribute.url" rounded=true target="_blank">
+            <v-btn :href="currentWork.attribute.url" rounded target="_blank">
               {{currentWork.attribute.title}}のサイトへ
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn :href="currentWork.attribute.url" rounded=true target="_blank">
+            <v-btn :href="currentWork.attribute.url" rounded target="_blank">
             githubのソースコードへ
             </v-btn>
           </v-card-actions>
