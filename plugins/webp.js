@@ -1,4 +1,4 @@
-import Vue from 'vue';
-import VueWebP from 'v-webp';
+import Vue from 'vue'
+import VueWebP from 'v-webp'
 
-Vue.use(VueWebP);
+Vue.use(VueWebP)

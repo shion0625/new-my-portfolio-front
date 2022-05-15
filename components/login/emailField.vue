@@ -12,9 +12,9 @@ export default {
   props: {
     email: {
       type: String,
-      default: "",
+      default: '',
       required: true,
     },
   },
-};
+}
 </script>

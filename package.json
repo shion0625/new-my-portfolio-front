@@ -12,6 +12,7 @@
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
     "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+    "prettierfix": "prettier --write --list-different .",
     "test": "jest",
     "clear-hard-source-cache": "rm -rf node_modules/.cache/hard-source/"
   },

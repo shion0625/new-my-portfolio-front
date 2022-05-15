@@ -18,13 +18,12 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~plugins/vue-typed', mode: 'client' },
-    {src: '~plugins/webp', mode: 'client'},
+    { src: '~plugins/webp', mode: 'client' },
     'plugins/axios',
   ],
 
@@ -62,8 +61,8 @@ export default {
 
   proxy: {
     '/api': {
-      target:　'http://localhost/api',
-    }
+      target: 'http://localhost/api',
+    },
   },
 
   // auth: {
@@ -88,7 +87,7 @@ export default {
   // },
 
   router: {
-    middleware: []
+    middleware: [],
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

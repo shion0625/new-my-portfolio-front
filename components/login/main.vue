@@ -1,6 +1,6 @@
 <template>
   <v-container fluid fill-height>
-    <v-row align-content="center" justify="center" >
+    <v-row align-content="center" justify="center">
       <v-form>
         <v-card width="400px">
           <v-card-title class="headline">ログイン</v-card-title>
@@ -17,16 +17,16 @@
   </v-container>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api'
 
 export default defineComponent({
   setup() {
-    const email = ref('');
-    const password = ref('');
+    const email = ref('')
+    const password = ref('')
     return {
-        email,
-        password
+      email,
+      password,
     }
-  }
+  },
 })
 </script>

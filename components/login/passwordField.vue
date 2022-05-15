@@ -17,14 +17,14 @@ export default {
   props: {
     password: {
       type: String,
-      default: "",
+      default: '',
       required: true,
     },
   },
   data() {
     return {
       show: false,
-    };
+    }
   },
-};
+}
 </script>

@@ -27,18 +27,21 @@
     </v-navigation-drawer>
 
     <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up"/>
+      <v-app-bar-nav-icon
+        @click.stop="drawer = !drawer"
+        class="hidden-md-and-up"
+      />
       <v-toolbar-title v-text="title" />
       <v-tabs class="hidden-md-and-down" right>
         <v-tab
-          v-for="(item,i) in items"
-          :key = i
+          v-for="(item, i) in items"
+          :key="i"
           :to="item.to"
           router
           exact
           nuxt
         >
-        {{ item.title }}
+          {{ item.title }}
         </v-tab>
       </v-tabs>
     </v-app-bar>
@@ -53,58 +56,58 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api';
+import { defineComponent, ref } from '@vue/composition-api'
 
 type Item = {
-  icon: string,
-  title: string,
+  icon: string
+  title: string
   to: string
 }
 
-export default defineComponent ({
-  setup(){
-    const clipped = ref(false);
-    const drawer = ref(false);
-    const fixed = ref(false);
+export default defineComponent({
+  setup() {
+    const clipped = ref(false)
+    const drawer = ref(false)
+    const fixed = ref(false)
     const items = ref<Item[]>([
       {
-          icon: 'mdi-home',
-          title: 'Home',
-          to: '/'
-        },
-        {
-          icon: 'mdi-work',
-          title: 'work',
-          to: '/works'
-        },
-        {
-          icon: 'mdi-list_alt',
-          title: 'profile',
-          to: '/profile'
-        },
-          {
-          icon: 'mdi-list_alt',
-          title: 'article',
-          to: '/articles'
-        },
-          {
-          icon: 'mdi-list_alt',
-          title: 'contact',
-          to: '/contact'
-        }
-      ])
-      const miniVariant = ref(false);
-      const title = ref('Kaito Yodogawa')
-      return {
-        clipped,
-        drawer,
-        fixed,
-        items,
-        miniVariant,
-        title
-      }
+        icon: 'mdi-home',
+        title: 'Home',
+        to: '/',
+      },
+      {
+        icon: 'mdi-work',
+        title: 'work',
+        to: '/works',
+      },
+      {
+        icon: 'mdi-list_alt',
+        title: 'profile',
+        to: '/profile',
+      },
+      {
+        icon: 'mdi-list_alt',
+        title: 'article',
+        to: '/articles',
+      },
+      {
+        icon: 'mdi-list_alt',
+        title: 'contact',
+        to: '/contact',
+      },
+    ])
+    const miniVariant = ref(false)
+    const title = ref('Kaito Yodogawa')
+    return {
+      clipped,
+      drawer,
+      fixed,
+      items,
+      miniVariant,
+      title,
     }
-  })
+  },
+})
 </script>
 
 <style lang="scss" scoped>
