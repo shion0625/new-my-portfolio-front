@@ -151,12 +151,14 @@
 
 <script script lang="ts">
 import axios from 'axios'
+
 import {
   defineComponent,
-  reactive,
   ref,
   onBeforeMount,
-} from '@vue/composition-api'
+  useFetch,
+  useAsync
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
@@ -179,7 +181,7 @@ export default defineComponent({
             .get('http://localhost/api/works')
             .then((response) => {
               allWorks.value = response.data[0]
-              console.log(allWorks)
+              // console.log(allWorks)
             })
             .catch((err) => {
               console.log('error')
@@ -193,6 +195,7 @@ export default defineComponent({
       dialog.value = true
     }
 
+    // const work_post = useAsync(()=>getWorks());
     onBeforeMount(() => {
       getWorks()
     })
@@ -203,6 +206,7 @@ export default defineComponent({
       allWorks,
       getWorks,
       onClickMore,
+      // work_post
     }
   },
 })
