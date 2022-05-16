@@ -157,7 +157,6 @@ import {
   ref,
   onBeforeMount,
   useFetch,
-  useAsync
 } from '@nuxtjs/composition-api'
 
 export default defineComponent({
@@ -195,10 +194,8 @@ export default defineComponent({
       dialog.value = true
     }
 
-    // const work_post = useAsync(()=>getWorks());
-    onBeforeMount(() => {
-      getWorks()
-    })
+    const work_post = useFetch(()=>getWorks());
+
 
     return {
       dialog,
@@ -206,7 +203,7 @@ export default defineComponent({
       allWorks,
       getWorks,
       onClickMore,
-      // work_post
+      work_post
     }
   },
 })
