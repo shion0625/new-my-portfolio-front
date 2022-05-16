@@ -1,6 +1,6 @@
 module.exports = {
-  'globals': {
-    '$': false,
+  globals: {
+    $: false,
   },
   root: true,
   env: {

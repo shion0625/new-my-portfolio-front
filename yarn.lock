@@ -10956,6 +10956,11 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+v-webp@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/v-webp/-/v-webp-1.0.3.tgz#f763baa5b8a500c6d354df594613c5a2e0e44265"
+  integrity sha512-r9Wp00O7DjuN1wGindKCNCD/pzvbr6P31y0D3HgehZXyufU/jKV3pBMSrRTWQVY/SrsnZs8F9kSAdK6WklBDnw==
+
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"

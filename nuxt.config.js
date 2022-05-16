@@ -3,6 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+  // target:'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -18,12 +19,13 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~plugins/vue-typed', mode: 'client' }
+    { src: '~plugins/vue-typed', mode: 'client' },
+    { src: '~plugins/webp', mode: 'client' },
+    'plugins/axios',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -54,40 +56,39 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    // baseURL: '/',
-    baseURL: 'http:localhost',
+    baseURL: 'http://localhost',
     credentials: true,
   },
 
   proxy: {
-    '/api/': {
-      target:　process.env.BASE_URL,
-    }
+    '/api': {
+      target: 'http://localhost/api',
+    },
   },
 
-  auth: {
-    redirect: {
-      login: '/login',
-      logout: '/login',
-      callback: false,
-      home: '/'
-    },
-    strategies: {
-      local: {
-        endpoints: {
-          login: { url: '/api/admin/auth/login', method: 'post', propertyName: false },
-          user: { url: '/api/admin/user', method: 'get', propertyName: false },
-          logout: false
-        },
-        tokenRequired: false,
-        tokenType: false,
-      }
-    },
-    localStorage: false,
-  },
+  // auth: {
+  //   redirect: {
+  //     login: '/login',
+  //     logout: '/',
+  //     callback: false,
+  //     home: '/'
+  //   },
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: { url: '/api/login', method: 'post', propertyName: false },
+  //         user: { url: '/api/users', method: 'get', propertyName: false },
+  //         logout: false
+  //       },
+  //       tokenRequired: false,
+  //       tokenType: false,
+  //     }
+  //   },
+  //   localStorage: false,
+  // },
 
   router: {
-    middleware: ['auth']
+    middleware: [],
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

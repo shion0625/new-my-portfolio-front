@@ -12,6 +12,7 @@
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:js && yarn lint:prettier",
     "lintfix": "prettier --write --list-different . && yarn lint:js --fix",
+    "prettierfix": "prettier --write --list-different .",
     "test": "jest",
     "clear-hard-source-cache": "rm -rf node_modules/.cache/hard-source/"
   },
@@ -24,6 +25,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "core-js": "^3.19.3",
     "nuxt": "^2.15.8",
+    "v-webp": "^1.0.3",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",

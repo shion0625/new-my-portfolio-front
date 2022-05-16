@@ -8,7 +8,6 @@ services:
     environment:
       PORT: '3000'
       HOST: '0.0.0.0'
-      BASE_URL: 'http://nginx'
     ports:
       - 3000:3000
     volumes:
