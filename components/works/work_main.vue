@@ -2,7 +2,7 @@
   <v-container class="grey lighten-5">
     <v-row>
       <v-col
-        v-for="work in state.works"
+        v-for="work in allWorks"
         :key="work.data.id"
         cols="12"
         sm="6"
@@ -151,33 +151,27 @@
 
 <script script lang="ts">
 import axios from 'axios'
+
 import {
   defineComponent,
-  reactive,
   ref,
   onBeforeMount,
-} from '@vue/composition-api'
+  useFetch,
+  useAsync
+} from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup() {
     interface Work {
-      title: string
-      content: string
-      genre: string
-      createUser: string
+      attribute: object
     }
-
-    // interface WorkFromDB extends Work{
-    //   id: string,
-    //   createdAt: string,
-    // }
-
-    const state = reactive({
-      works: {},
-    })
+    interface Works {
+      data: []
+    }
 
     const dialog = ref(false)
     let currentWork = ref<Work>()
+    let allWorks = ref<Works>()
 
     async function getWorks() {
       await axios
@@ -186,8 +180,8 @@ export default defineComponent({
           await axios
             .get('http://localhost/api/works')
             .then((response) => {
-              state.works = response.data[0]
-              console.log(state.works)
+              allWorks.value = response.data[0]
+              // console.log(allWorks)
             })
             .catch((err) => {
               console.log('error')
@@ -201,16 +195,18 @@ export default defineComponent({
       dialog.value = true
     }
 
+    // const work_post = useAsync(()=>getWorks());
     onBeforeMount(() => {
       getWorks()
     })
 
     return {
       dialog,
-      state,
       currentWork,
+      allWorks,
       getWorks,
       onClickMore,
+      // work_post
     }
   },
 })

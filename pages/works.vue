@@ -1,3 +1,3 @@
 <template>
-  <worksMain />
+  <worksWorkMain />
 </template>
